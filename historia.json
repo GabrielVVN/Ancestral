@@ -1,125 +1,254 @@
 {
   "menu": [
     {
-      "id_inicio": "ciata_inicio",
-      "titulo": "Tia Ciata: O Berço da Cultura",
-      "descricao": "Rio de Janeiro, 1899. Lidere a Pequena África e use estratégias culturais e políticas para resistir à repressão da Primeira República.",
-      "icone": "🥁"
+      "id_inicio": "tereza_inicio",
+      "titulo": "Tereza de Benguela: A Rainha do Quariterê",
+      "descricao": "Mato Grosso, Séc XVIII. Assuma a liderança do Quilombo do Quariterê. Governe, negocie e resista às expedições dos bandeirantes em um jogo de sobrevivência e estratégia.",
+      "icone": "👑"
     },
     {
-      "id_inicio": "firmina_inicio",
-      "titulo": "Maria Firmina: A Voz da Liberdade",
-      "descricao": "Maranhão, 1859. Utilize a educação e a literatura como armas para expor as feridas da escravidão em pleno período imperial.",
-      "icone": "🖋️"
+      "id_inicio": "antonieta_inicio",
+      "titulo": "Antonieta de Barros: A Força da Educação",
+      "descricao": "Santa Catarina, 1934. Quebre barreiras políticas, use o jornalismo como arma e lute para se tornar a primeira deputada negra do Brasil.",
+      "icone": "🗳️"
     }
   ],
   "nos": {
-    "ciata_inicio": {
-      "id": "ciata_inicio",
-      "clima": "normal",
-      "titulo": "A Chegada na Capital",
-      "texto_principal": "Rio de Janeiro, 1899. Você é Hilária Batista de Almeida. A capital é hostil com a população negra recém-liberta. Você traz consigo os saberes do candomblé e o talento como quituteira. Como dará os primeiros passos?",
-      "fato_historico": "A imigração baiana formou a 'Pequena África', uma rede de solidariedade liderada pelas 'Tias Baianas'.",
-      "escolhas": [
-        {"texto": "Vender doces na rua com trajes tradicionais.", "proximo_id": "ciata_venda", "impacto": {"recursos": 20, "comunidade": 0, "seguranca": -10}},
-        {"texto": "Alugar uma casa na Praça Onze para acolher baianos.", "proximo_id": "ciata_terreiro", "impacto": {"recursos": -15, "comunidade": 25, "seguranca": 10}}
-      ]
-    },
-    "ciata_venda": {
-      "id": "ciata_venda",
+    "tereza_inicio": {
+      "id": "tereza_inicio",
       "clima": "tenso",
-      "titulo": "O Tabuleiro e a Lei",
-      "texto_principal": "Seus doces são um sucesso, mas a polícia exige taxas extorsivas para não confiscar os tabuleiros.",
-      "fato_historico": "Os trajes de baiana eram estratégias de identidade, mas atraíam a repressão policial.",
+      "titulo": "A Coroa de Sangue e Barro",
+      "texto_principal": "Mato Grosso, 1770. O ar está pesado no Vale do Guaporé. O líder José Piolho tombou, e os olhares de milhares de negros fugidos e indígenas locais se voltam para você, Tereza. A responsabilidade de manter o Quilombo do Quariterê livre de bandeirantes e da Coroa Portuguesa agora é sua. O acampamento precisa de ordem imediata, ou o medo destruirá vocês por dentro.",
+      "fato_historico": "Após a morte de José Piolho, Tereza de Benguela assumiu a liderança, transformando o refúgio em um verdadeiro Estado autônomo e altamente organizado nas fronteiras do Brasil colonial.",
       "escolhas": [
-        {"texto": "Pagar suborno para trabalhar em paz.", "proximo_id": "ciata_final_isolada", "impacto": {"recursos": -30, "comunidade": -10, "seguranca": 20}},
-        {"texto": "Recuar e investir em uma casa na Praça Onze.", "proximo_id": "ciata_terreiro", "impacto": {"recursos": -20, "comunidade": 20, "seguranca": 10}}
+        {"texto": "Convocar os anciãos e instaurar um Parlamento para dividir o peso das decisões.", "proximo_id": "tereza_parlamento", "impacto": {"recursos": 0, "comunidade": 30, "seguranca": 10}},
+        {"texto": "Assumir o controle militar absoluto e focar na forja de armas e defesas físicas.", "proximo_id": "tereza_militar", "impacto": {"recursos": -10, "comunidade": -10, "seguranca": 40}}
       ]
     },
-    "ciata_terreiro": {
-      "id": "ciata_terreiro",
+    "tereza_parlamento": {
+      "id": "tereza_parlamento",
       "clima": "esperanca",
-      "titulo": "A Casa de Tia Ciata",
-      "texto_principal": "Sua casa atrai trabalhadores e músicos. No entanto, os cultos e batuques são proibidos por lei. A polícia ronda a área.",
-      "fato_historico": "A casa de Tia Ciata era terreiro, local de festas e refúgio político simultaneamente.",
+      "titulo": "O Senado da Selva",
+      "texto_principal": "Você não governa como uma tirana, mas como uma chefe de Estado. Um parlamento é formado por conselheiros que se reúnem semanalmente. O povo trabalha com mais afinco, e os campos de milho, feijão e algodão prosperam como nunca. Temos excedentes agrícolas. O que faremos com as sobras da colheita?",
+      "fato_historico": "O quilombo possuía um conselho de deputados, algo inédito que demonstrava uma organização política avançada e democrática, rivalizando com a estrutura da própria Coroa.",
       "escolhas": [
-        {"texto": "Estratégia: Choro na sala da frente, Samba no quintal.", "proximo_id": "ciata_final_samba", "impacto": {"recursos": 0, "comunidade": 30, "seguranca": 10}},
-        {"texto": "Enfrentar e manter as tradições às claras.", "proximo_id": "ciata_invasao", "impacto": {"recursos": -10, "comunidade": 10, "seguranca": -40}}
+        {"texto": "Trocar o excedente por armas de fogo secretamente com colonos contrabandistas.", "proximo_id": "tereza_comercio_armas", "impacto": {"recursos": -20, "comunidade": 0, "seguranca": 30}},
+        {"texto": "Trocar por tecidos e ferramentas de agricultura para melhorar a qualidade de vida.", "proximo_id": "tereza_prosperidade", "impacto": {"recursos": 40, "comunidade": 20, "seguranca": -10}}
       ]
     },
-    "ciata_invasao": {
-      "id": "ciata_invasao",
+    "tereza_militar": {
+      "id": "tereza_militar",
       "clima": "tenso",
-      "titulo": "A Invasão",
-      "texto_principal": "A polícia invade sua casa. O delegado ameaça fechar o terreiro e prender todos.",
-      "fato_historico": "O Código Penal de 1890 criminalizava o candomblé como 'magia' e vadiagem.",
+      "titulo": "A Fortaleza de Ferro",
+      "texto_principal": "A disciplina é brutal. Você exige que cada habitante, negro ou indígena, aprenda a lutar. O ferro roubado das vilas é derretido e transformado em lanças e facões. Porém, as longas jornadas de vigília e treinamento militar começam a esgotar os trabalhadores agrícolas, e o descontentamento cresce.",
+      "fato_historico": "O Quariterê dominava a metalurgia, reaproveitando ferros e ferramentas das expedições derrotadas para criar seu próprio arsenal bélico.",
       "escolhas": [
-        {"texto": "Usar seus saberes ancestrais para curar a ferida do Presidente em troca de favores.", "proximo_id": "ciata_final_poder", "impacto": {"recursos": 30, "comunidade": 0, "seguranca": 50}},
-        {"texto": "Gastar economias pagando advogados.", "proximo_id": "ciata_final_isolada", "impacto": {"recursos": -40, "comunidade": 10, "seguranca": 10}}
+        {"texto": "Manter a mão de ferro. A sobrevivência é mais importante que o conforto.", "proximo_id": "tereza_cerco", "impacto": {"recursos": -20, "comunidade": -30, "seguranca": 30}},
+        {"texto": "Recuar as ordens militares e ceder espaço para as lideranças indígenas aliarem-se ao comando.", "proximo_id": "tereza_alianca_indigena", "impacto": {"recursos": 10, "comunidade": 30, "seguranca": 0}}
       ]
     },
-    "ciata_final_samba": {
-      "id": "ciata_final_samba",
-      "tipo": "final",
-      "conclusao_sucesso": "\"Sua estratégia de resistência foi perfeita. Mantendo as aparências na sala e a tradição no quintal, o primeiro samba da história nasceu sob a sua proteção.\"",
-      "conclusao_falha": "\"Apesar da resistência cultural, a repressão impediu a expansão total da sua influência.\""
-    },
-    "ciata_final_poder": {
-      "id": "ciata_final_poder",
-      "tipo": "final",
-      "conclusao_sucesso": "\"Você jogou com a genialidade política da verdadeira Tia Ciata. Curou a elite e exigiu respeito institucional, tornando sua casa intocável.\"",
-      "conclusao_falha": "\"Você se aproximou do poder, mas isso não foi suficiente para proteger toda a sua comunidade.\""
-    },
-    "ciata_final_isolada": {
-      "id": "ciata_final_isolada",
-      "tipo": "final",
-      "conclusao_sucesso": "\"Você focou na sobrevivência financeira. Evitou a miséria, mas as extorsões impediram a construção da vasta rede de solidariedade das Tias Baianas.\"",
-      "conclusao_falha": "\"O peso do Estado engoliu seus recursos. Uma dura realidade de muitas mulheres sem rede de proteção.\""
-    },
-    
-    "firmina_inicio": {
-      "id": "firmina_inicio",
+    "tereza_alianca_indigena": {
+      "id": "tereza_alianca_indigena",
       "clima": "normal",
-      "titulo": "A Tinta e o Sangue",
-      "texto_principal": "Maranhão, 1859. Você é Maria Firmina dos Reis, uma jovem professora negra. Indignada com os horrores da escravidão, você escreveu 'Úrsula', um romance expondo a visão dos escravizados. Como você o publicará no Brasil Império?",
-      "fato_historico": "Maria Firmina foi a primeira romancista negra do Brasil. 'Úrsula' é considerada a primeira obra da literatura afro-brasileira.",
+      "titulo": "Sangue da Mesma Terra",
+      "texto_principal": "Os povos indígenas da região conhecem as rotas e os rios como ninguém. Ao dar a eles poder de decisão, você descobre que os bandeirantes estão acampados a poucos dias de viagem, preparando uma ofensiva surpresa. A aliança deu a você tempo de resposta.",
+      "fato_historico": "O Quilombo do Quariterê era um espaço de convivência interétnica, abrigando não apenas negros fugidos, mas também indígenas que escapavam da escravização colonial.",
       "escolhas": [
-        {"texto": "Publicar sob o pseudônimo 'Uma Maranhense' para evitar ataques iniciais.", "proximo_id": "firmina_escola", "impacto": {"recursos": 10, "comunidade": 20, "seguranca": 10}},
-        {"texto": "Publicar com seu nome real, enfrentando a elite aristocrática de peito aberto.", "proximo_id": "firmina_censura", "impacto": {"recursos": -10, "comunidade": 30, "seguranca": -30}}
+        {"texto": "Usar o conhecimento indígena para envenenar os rios e rotas de suprimento do inimigo.", "proximo_id": "tereza_guerra_fria", "impacto": {"recursos": -10, "comunidade": 10, "seguranca": 40}},
+        {"texto": "Preparar uma emboscada frontal na mata fechada.", "proximo_id": "tereza_emboscada", "impacto": {"recursos": -20, "comunidade": -10, "seguranca": 20}}
       ]
     },
-    "firmina_censura": {
-      "id": "firmina_censura",
+    "tereza_comercio_armas": {
+      "id": "tereza_comercio_armas",
       "clima": "tenso",
-      "titulo": "O Preço da Ousadia",
-      "texto_principal": "Seu livro causa um choque. A elite escravocrata inicia uma campanha de difamação contra você, ameaçando sua posição como professora concursada.",
-      "fato_historico": "O silenciamento intelectual era uma arma do Império contra qualquer narrativa que não fosse dos homens brancos de elite.",
+      "titulo": "Traição no Ouro",
+      "texto_principal": "As armas chegam, mas o comércio chamou muita atenção. O governador da Capitania de Mato Grosso, furioso com a afronta de um \"estado negro\" independente perto das ricas minas de ouro, ordena uma expedição massiva liderada por Luís Pinto de Sousa Coutinho. Eles vêm com canhões.",
+      "fato_historico": "A prosperidade de Quariterê tornou-se uma ameaça econômica e ideológica inaceitável para a Capitania de Mato Grosso, forçando intervenção do próprio governador.",
       "escolhas": [
-        {"texto": "Recuar temporariamente e focar apenas no ensino básico de forma discreta.", "proximo_id": "firmina_final_esquecimento", "impacto": {"recursos": 20, "comunidade": -10, "seguranca": 30}},
-        {"texto": "Usar a atenção para fundar uma escola gratuita e radical para crianças.", "proximo_id": "firmina_escola", "impacto": {"recursos": -30, "comunidade": 20, "seguranca": -10}}
+        {"texto": "Evacuar o povo para as montanhas e deixar o quilombo vazio queimar.", "proximo_id": "tereza_fuga_estrategica", "impacto": {"recursos": -50, "comunidade": 20, "seguranca": -10}},
+        {"texto": "Posicionar as armas recém-compradas e defender o território com a vida.", "proximo_id": "tereza_cerco", "impacto": {"recursos": -30, "comunidade": 10, "seguranca": -30}}
       ]
     },
-    "firmina_escola": {
-      "id": "firmina_escola",
+    "tereza_prosperidade": {
+      "id": "tereza_prosperidade",
+      "clima": "normal",
+      "titulo": "A Breve Paz",
+      "texto_principal": "O uso de teares e agricultura avançada transforma Quariterê quase em uma cidade. O povo veste tecidos de algodão plantado ali mesmo. Porém, a falta de pólvora cobra seu preço. Os sentinelas avisam que uma milícia armada com mosquetes está a meio dia de distância.",
+      "fato_historico": "Tereza incentivou o cultivo de algodão e a fabricação de tecidos em teares rústicos, elevando o quilombo além de um mero acampamento militar.",
+      "escolhas": [
+        {"texto": "Usar táticas de guerrilha noturna para roubar as armas deles.", "proximo_id": "tereza_emboscada", "impacto": {"recursos": 10, "comunidade": -20, "seguranca": 20}},
+        {"texto": "Tentar uma rota de fuga pelo rio Guaporé usando canoas indígenas.", "proximo_id": "tereza_fuga_estrategica", "impacto": {"recursos": -40, "comunidade": 10, "seguranca": -10}}
+      ]
+    },
+    "tereza_guerra_fria": {
+      "id": "tereza_guerra_fria",
       "clima": "esperanca",
-      "titulo": "A Escola Mista",
-      "texto_principal": "Você decide dar um passo impensável para a época: fundar uma escola gratuita e mista, onde meninos e meninas estudam na mesma sala, focada em filhos de camponeses e escravizados.",
-      "fato_historico": "Em 1880, Firmina fundou a primeira escola mista do Maranhão, um ato revolucionário e escandaloso para a sociedade patriarcal.",
+      "titulo": "A Mata Responde",
+      "texto_principal": "As táticas silenciosas dizimam a expedição bandeirante antes mesmo deles avistarem o quilombo. Doenças, fome e desorientação forçam o recuo dos soldados da Coroa. O Quariterê celebra sua Rainha, garantindo mais anos de liberdade e prosperidade.",
+      "fato_historico": "As táticas de guerrilha e o uso inteligente do terreno pantanoso do Guaporé foram cruciais para a longevidade do quilombo.",
       "escolhas": [
-        {"texto": "Ver o seu legado.", "proximo_id": "firmina_final_legado", "impacto": {"recursos": -10, "comunidade": 40, "seguranca": -10}}
+        {"texto": "Consolidar o reinado.", "proximo_id": "tereza_final_vitoria", "impacto": {"recursos": 20, "comunidade": 40, "seguranca": 20}}
       ]
     },
-    "firmina_final_legado": {
-      "id": "firmina_final_legado",
-      "tipo": "final",
-      "conclusao_sucesso": "\"Sua coragem mudou a história. Apesar da escola mista ter sido fechada pelas autoridades anos depois, sua obra 'Úrsula' e seus alunos plantaram a semente da educação como pilar da liberdade negra.\"",
-      "conclusao_falha": "\"Sua intenção era nobre, mas a falta de apoio tornou impossível manter o projeto frente à elite imperial.\""
+    "tereza_emboscada": {
+      "id": "tereza_emboscada",
+      "clima": "tenso",
+      "titulo": "Banho de Sangue",
+      "texto_principal": "O confronto é brutal. Vocês conhecem a mata, mas o poder de fogo dos colonos é avassalador. Muitos conselheiros tombam. No calor da batalha, você fica isolada do grupo principal.",
+      "fato_historico": "A destruição do quilombo foi violenta, culminando no aprisionamento de mais de 100 pessoas e na morte de suas principais lideranças.",
+      "escolhas": [
+        {"texto": "Lutar até o último fôlego para dar tempo aos outros fugirem.", "proximo_id": "tereza_final_morte", "impacto": {"recursos": -40, "comunidade": 30, "seguranca": -50}},
+        {"texto": "Recuar para a floresta e tentar reagrupar sobreviventes.", "proximo_id": "tereza_fuga_estrategica", "impacto": {"recursos": -30, "comunidade": -20, "seguranca": 10}}
+      ]
     },
-    "firmina_final_esquecimento": {
-      "id": "firmina_final_esquecimento",
+    "tereza_cerco": {
+      "id": "tereza_cerco",
+      "clima": "tenso",
+      "titulo": "O Juízo Final",
+      "texto_principal": "Luís Pinto e sua milícia cercam Quariterê. O som dos tiros abafa os cantos. O Parlamento é incendiado. Você vê o império que construiu desmoronar sob a força desproporcional do exército colonial.",
+      "fato_historico": "Tereza foi capturada durante o ataque final. A causa de sua morte varia entre suicídio na prisão e assassinato brutal pelas autoridades para servir de exemplo.",
+      "escolhas": [
+        {"texto": "Enfrentar a morte como Rainha.", "proximo_id": "tereza_final_morte", "impacto": {"recursos": -50, "comunidade": 0, "seguranca": -50}}
+      ]
+    },
+    "tereza_fuga_estrategica": {
+      "id": "tereza_fuga_estrategica",
+      "clima": "normal",
+      "titulo": "A Diáspora",
+      "texto_principal": "O quilombo arde em chamas, mas você conseguiu guiar uma boa parte do seu povo para longe, embrenhando-se nas regiões mais inóspitas da Amazônia. O Quariterê caiu, mas o sangue livre sobrevive.",
+      "fato_historico": "Muitos sobreviventes dos quilombos destruídos formavam novas comunidades menores, mantendo viva a cultura de resistência.",
+      "escolhas": [
+        {"texto": "Refletir sobre o legado.", "proximo_id": "tereza_final_fuga", "impacto": {"recursos": -20, "comunidade": 20, "seguranca": 10}}
+      ]
+    },
+    "tereza_final_vitoria": {
+      "id": "tereza_final_vitoria",
       "tipo": "final",
-      "conclusao_sucesso": "\"Você garantiu sua sobrevivência como professora, mas seu silenciamento temporário atrasou a revolução educacional que seu intelecto poderia ter causado imediatamente.\"",
-      "conclusao_falha": "\"A máquina imperial venceu momentaneamente. A sobrevivência ofuscou a ousadia literária.\""
+      "conclusao_sucesso": "\"Um final lendário! Sob o governo de Rainha Tereza de Benguela, o Quilombo do Quariterê se tornou o pesadelo da Coroa Portuguesa e o paraíso dos oprimidos. Sua liderança tática impecável garantiu anos de uma sociedade autônoma, negra e indígena, próspera no coração do Brasil. O mito vive.\"",
+      "conclusao_falha": "\"Apesar das pequenas vitórias, o isolamento a longo prazo corroeu as fundações do seu reinado.\""
+    },
+    "tereza_final_morte": {
+      "id": "tereza_final_morte",
+      "tipo": "final",
+      "conclusao_sucesso": "\"O impacto de suas escolhas não evitou sua queda. Tereza de Benguela foi capturada e morta. Mas sua resistência fez a estrutura do Império tremer. Você não foi apagada; o Dia Nacional da Mulher Negra leva o seu nome. A rainha caiu, mas a coroa resistiu no tempo.\"",
+      "conclusao_falha": "\"O peso esmagador das forças coloniais destruiu sua resistência, mostrando a violenta disparidade de recursos da época.\""
+    },
+    "tereza_final_fuga": {
+      "id": "tereza_final_fuga",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Recuar garantiu a vida de muitos, um sacrifício amargo, mas necessário. A grandiosa estrutura sociopolítica do Parlamento de Quariterê foi engolida pela selva, mas a semente da liberdade e as táticas de guerrilha sobreviveram na memória do povo mato-grossense.\"",
+      "conclusao_falha": "\"Ao perder seu território, seu povo se dispersou e a grande unificação negra e indígena do Guaporé se quebrou para sempre.\""
+    },
+
+    "antonieta_inicio": {
+      "id": "antonieta_inicio",
+      "clima": "normal",
+      "titulo": "A Tinta e o Voto",
+      "texto_principal": "Santa Catarina, 1934. Você é Antonieta de Barros, professora, negra, mulher e filha de uma ex-escravizada. A revolução está no ar, o sufrágio feminino acabou de ser aprovado e a velha república desmorona. A elite branca catarinense controla os meios de comunicação e a política. Onde você focará sua energia inicial?",
+      "fato_historico": "Antonieta de Barros superou barreiras intransponíveis de raça, classe e gênero, tornando-se uma voz implacável em prol da educação pública e laica.",
+      "escolhas": [
+        {"texto": "Na imprensa: Usar o pseudônimo 'Maria da Ilha' para escrever crônicas ferozes sobre os direitos femininos.", "proximo_id": "antonieta_imprensa", "impacto": {"recursos": 10, "comunidade": 20, "seguranca": 10}},
+        {"texto": "Na política: Lançar-se diretamente candidata a deputada pelo Partido Liberal Catarinense.", "proximo_id": "antonieta_politica", "impacto": {"recursos": -30, "comunidade": 30, "seguranca": -20}}
+      ]
+    },
+    "antonieta_imprensa": {
+      "id": "antonieta_imprensa",
+      "clima": "esperanca",
+      "titulo": "A Força da Crônica",
+      "texto_principal": "A escrita afiada de 'Maria da Ilha' domina os jornais. Você denuncia o silenciamento das mulheres e argumenta que a educação é a única rota de emancipação. Você ganha fãs ferrenhos, mas a elite editorial começa a questionar a origem e a ousadia da autora.",
+      "fato_historico": "Antonieta dirigiu e fundou jornais, usando as crônicas para pautar a exclusão das mulheres do ensino superior e do mercado de trabalho qualificado.",
+      "escolhas": [
+        {"texto": "Manter o jornalismo como sua principal arma, fundando seu próprio veículo de comunicação.", "proximo_id": "antonieta_dona_jornal", "impacto": {"recursos": -40, "comunidade": 40, "seguranca": -10}},
+        {"texto": "Revelar-se politicamente e converter a fama literária em votos para a Assembleia.", "proximo_id": "antonieta_politica", "impacto": {"recursos": 20, "comunidade": 20, "seguranca": 0}}
+      ]
+    },
+    "antonieta_politica": {
+      "id": "antonieta_politica",
+      "clima": "tenso",
+      "titulo": "O Covil dos Lobos",
+      "texto_principal": "Você lança a campanha. Os olhares de desprezo nos comícios da elite conservadora são evidentes. Uma mulher negra ousar pedir o voto de homens brancos aristocratas é um escândalo. Adversários começam a espalhar panfletos racistas difamando sua família.",
+      "fato_historico": "O racismo e o machismo atacaram Antonieta não apenas na campanha, mas em todo o seu mandato legislativo, onde tentavam sistematicamente ridicularizar sua atuação.",
+      "escolhas": [
+        {"texto": "Mudar a rota: focar a campanha apenas nas classes operárias, nas lavadeiras e nas professoras.", "proximo_id": "antonieta_campanha_base", "impacto": {"recursos": -20, "comunidade": 40, "seguranca": 10}},
+        {"texto": "Enfrentar a elite em praça pública com discursos de alta erudição literária para calá-los.", "proximo_id": "antonieta_eleicao", "impacto": {"recursos": -10, "comunidade": 10, "seguranca": -20}}
+      ]
+    },
+    "antonieta_dona_jornal": {
+      "id": "antonieta_dona_jornal",
+      "clima": "tenso",
+      "titulo": "A Revista Cruz e Sousa",
+      "texto_principal": "Você cria uma revista dedicada a dar voz aos escritores e intelectuais de Florianópolis. Porém, sem o financiamento da elite comercial, manter a revista circulando drena todas as suas reservas financeiras. A censura getulista também começa a se fortalecer no horizonte.",
+      "fato_historico": "Antonieta fundou a revista 'A Semana' e dirigiu 'Vida Ilhoa', espaços raros de difusão de pensamento livre no sul do Brasil.",
+      "escolhas": [
+        {"texto": "Recuar e aliar-se politicamente a grupos conservadores para manter o jornal.", "proximo_id": "antonieta_final_apagada", "impacto": {"recursos": 40, "comunidade": -30, "seguranca": 20}},
+        {"texto": "Falir a revista, mas voltar todo o seu conhecimento para a educação de jovens e pobres.", "proximo_id": "antonieta_educadora", "impacto": {"recursos": -30, "comunidade": 30, "seguranca": 10}}
+      ]
+    },
+    "antonieta_campanha_base": {
+      "id": "antonieta_campanha_base",
+      "clima": "esperanca",
+      "titulo": "A Força do Magistério",
+      "texto_principal": "As ruas respondem. Professoras e trabalhadores braçais se veem representados em você. No dia da eleição, as urnas consagram o impossível: Você é a primeira mulher eleita Deputada em Santa Catarina, e a primeira negra no Brasil. Agora começa a verdadeira guerra: aprovar leis.",
+      "fato_historico": "Antonieta usava sua vivência como professora para angariar o apoio massivo do magistério feminino, que passou a ter poder de voto com a Constituição de 1934.",
+      "escolhas": [
+        {"texto": "Redigir imediatamente a lei que cria o Dia do Professor e concede bolsas para alunos pobres.", "proximo_id": "antonieta_final_lei", "impacto": {"recursos": 0, "comunidade": 40, "seguranca": 10}},
+        {"texto": "Ir à tribuna investigar e denunciar desvios da oligarquia catarinense.", "proximo_id": "antonieta_ditadura", "impacto": {"recursos": -10, "comunidade": 10, "seguranca": -40}}
+      ]
+    },
+    "antonieta_eleicao": {
+      "id": "antonieta_eleicao",
+      "clima": "normal",
+      "titulo": "No Palácio",
+      "texto_principal": "Sua oratória irretocável quebra o preconceito de parte da classe média, e você é eleita. Dentro do plenário, o machismo é sufocante. Seus projetos de educação são colocados no fim da pauta propositalmente pelos deputados mais velhos.",
+      "fato_historico": "Apesar do cargo político, Antonieta sofria boicotes legislativos constantes, exigindo enorme habilidade de articulação para ter suas falas registradas nos anais.",
+      "escolhas": [
+        {"texto": "Articular nos bastidores, cedendo em pautas menores para passar suas leis educacionais.", "proximo_id": "antonieta_final_lei", "impacto": {"recursos": 10, "comunidade": 10, "seguranca": 10}},
+        {"texto": "Gritar mais alto na tribuna, expondo publicamente o boicote machista.", "proximo_id": "antonieta_ditadura", "impacto": {"recursos": 0, "comunidade": 20, "seguranca": -30}}
+      ]
+    },
+    "antonieta_educadora": {
+      "id": "antonieta_educadora",
+      "clima": "esperanca",
+      "titulo": "A Mestra",
+      "texto_principal": "Longe do parlamento violento, você se torna uma lenda nas salas de aula. Você dirige colégios, alfabetiza filhas e filhos de trabalhadores e instila neles a urgência da igualdade. Você não mudou a lei pela caneta, mudou moldando mentes.",
+      "fato_historico": "Antes, durante e depois de seus mandatos, Antonieta foi professora de Português e Literatura, defendendo que a ignorância era a maior fonte de escravidão.",
+      "escolhas": [
+        {"texto": "Ver o legado.", "proximo_id": "antonieta_final_educadora", "impacto": {"recursos": 0, "comunidade": 40, "seguranca": 0}}
+      ]
+    },
+    "antonieta_ditadura": {
+      "id": "antonieta_ditadura",
+      "clima": "tenso",
+      "titulo": "O Golpe",
+      "texto_principal": "O ano é 1937. Getúlio Vargas instaura o Estado Novo. O Congresso e as Assembleias Legislativas são fechadas pela força militar. A democracia morre, e seu mandato combativo é brutalmente interrompido e censurado.",
+      "fato_historico": "O Estado Novo cassou mandatos políticos em todo o Brasil. Antonieta perdeu o cargo e só voltaria à política em 1947, após a redemocratização.",
+      "escolhas": [
+        {"texto": "Enfrentar o destino e retornar à sala de aula até a democracia voltar.", "proximo_id": "antonieta_final_ditadura", "impacto": {"recursos": -30, "comunidade": 0, "seguranca": -20}}
+      ]
+    },
+    "antonieta_final_lei": {
+      "id": "antonieta_final_lei",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Sua astúcia e perseverança venceram! Você imortalizou seu nome ao redigir a Lei nº 145/1948, que criou o Dia do Professor, além de instituir bolsas de estudo essenciais. Uma mulher negra usou o legislativo racista para moldar para sempre a educação brasileira.\"",
+      "conclusao_falha": "\"Você conseguiu passar algumas leis menores, mas os conchavos políticos limitaram o potencial de transformação massiva que a sua eleição prometia.\""
+    },
+    "antonieta_final_apagada": {
+      "id": "antonieta_final_apagada",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Você salvou seu negócio e seus recursos financeiros. Mas ao fazer acordos com a elite racista catarinense, sua voz como defensora incisiva das mulheres e dos negros foi perdendo força.\"",
+      "conclusao_falha": "\"O sistema engoliu seu ímpeto. Suas alianças conservadoras garantiram segurança, mas mancharam a oportunidade de ser a ruptura histórica que seu povo precisava.\""
+    },
+    "antonieta_final_educadora": {
+      "id": "antonieta_final_educadora",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Sem o cargo político, você brilhou onde era verdadeiramente livre: na sala de aula. Você construiu uma geração de jovens catarinenses críticos e conscientes, provando que a educação de base é a maior arma contra a exclusão.\"",
+      "conclusao_falha": "\"A falta de recursos prejudicou o alcance do seu ensino, limitando as transformações apenas aos alunos da sua vizinhança.\""
+    },
+    "antonieta_final_ditadura": {
+      "id": "antonieta_final_ditadura",
+      "tipo": "final",
+      "conclusao_sucesso": "\"O Estado Novo cortou suas asas temporariamente. Mas seu mandato, embora curto, foi um farol. Você retornou às salas de aula com a cabeça erguida, aguardando a redemocratização para lutar novamente.\"",
+      "conclusao_falha": "\"O golpe autoritário de Vargas encerrou suas denúncias precocemente. A elite machista e branca venceu a batalha institucional na canetada.\""
     }
   }
 }

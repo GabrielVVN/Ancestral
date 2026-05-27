@@ -1,23 +1,26 @@
 let estado = { recursos: 50, comunidade: 50, seguranca: 50 };
 let typewriterInterval; 
+let digitando = false; 
+let textoCompletoAtual = ""; 
+let callbackEscolhas = null; 
 
 document.addEventListener("DOMContentLoaded", () => {
     atualizarHUD();
     
-    // Captura o ID da história escolhida na URL (ex: ?historia=firmina_inicio)
     const urlParams = new URLSearchParams(window.location.search);
-    const idInicial = urlParams.get('historia') || 'ciata_inicio'; // Fallback de segurança
+    // Alterado para Tereza de Benguela
+    const idInicial = urlParams.get('historia') || 'tereza_inicio'; 
     
     carregarNo(idInicial);
+
+    document.body.addEventListener("click", pularAnimacaoTexto);
 });
 
 async function carregarNo(id) {
     const container = document.getElementById("historia-container");
     
-    if (container.classList.contains("animar-entrada")) {
-        container.classList.remove("animar-entrada");
-        container.classList.add("animar-saida");
-        await new Promise(resolve => setTimeout(resolve, 400));
+    if (container.style.opacity === "1" || container.style.opacity === "") {
+        await gsap.to(container, { opacity: 0, y: -20, duration: 0.4, ease: "power2.in" });
     }
 
     try {
@@ -30,19 +33,17 @@ async function carregarNo(id) {
         }
 
         document.body.className = `clima-${dados.clima}`;
+        
         if (dados.clima === "tenso") {
-            container.classList.add("tremida");
-            setTimeout(() => container.classList.remove("tremida"), 400);
+            gsap.fromTo(container, { x: -10 }, { x: 10, repeat: 5, yoyo: true, duration: 0.05 });
         }
 
         montarTela(dados);
         
-        container.classList.remove("animar-saida");
-        void container.offsetWidth; 
-        container.classList.add("animar-entrada");
+        gsap.fromTo(container, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" });
 
     } catch (error) {
-        console.error("Erro:", error);
+        console.error("Erro ao carregar a história:", error);
     }
 }
 
@@ -53,6 +54,7 @@ function montarTela(dados) {
     if (dados.fato_historico) {
         document.getElementById("texto-fato").innerText = dados.fato_historico;
         boxFato.style.display = "block";
+        gsap.fromTo(boxFato, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, delay: 0.2 });
     } else {
         boxFato.style.display = "none";
     }
@@ -65,23 +67,27 @@ function montarTela(dados) {
         const btn = document.createElement("button");
         btn.innerText = escolha.texto;
         btn.className = "btn-escolha";
-        btn.onclick = () => {
+        btn.onclick = (e) => {
+            e.stopPropagation(); 
             aplicarImpacto(escolha.impacto);
             carregarNo(escolha.proximo_id);
         };
         containerEscolhas.appendChild(btn);
     });
 
-    efeitoMaquinaDeEscrever(dados.texto_principal, () => {
-        containerEscolhas.style.transition = "opacity 0.5s ease";
-        containerEscolhas.style.opacity = "1";
-    });
+    textoCompletoAtual = dados.texto_principal;
+    callbackEscolhas = () => {
+        gsap.to(containerEscolhas, { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" });
+    };
+
+    efeitoMaquinaDeEscrever(textoCompletoAtual, callbackEscolhas);
 }
 
 function efeitoMaquinaDeEscrever(texto, callback) {
     const el = document.getElementById("texto-principal");
     el.innerText = "";
     clearInterval(typewriterInterval); 
+    digitando = true;
     
     let i = 0;
     typewriterInterval = setInterval(() => {
@@ -90,9 +96,19 @@ function efeitoMaquinaDeEscrever(texto, callback) {
             i++;
         } else {
             clearInterval(typewriterInterval);
+            digitando = false;
             if (callback) callback();
         }
     }, 20); 
+}
+
+function pularAnimacaoTexto() {
+    if (digitando) {
+        clearInterval(typewriterInterval);
+        document.getElementById("texto-principal").innerText = textoCompletoAtual;
+        digitando = false;
+        if (callbackEscolhas) callbackEscolhas();
+    }
 }
 
 function atualizarHUD() {
@@ -106,7 +122,7 @@ function aplicarImpacto(impacto) {
     for (const atributo in impacto) {
         const valor = impacto[atributo];
         if (valor !== 0) {
-            estado[atributo] += valor;
+            estado[atributo] = Math.max(0, Math.min(100, estado[atributo] + valor));
             mostrarNumeroFlutuante(atributo, valor);
         }
     }
@@ -122,26 +138,34 @@ function mostrarNumeroFlutuante(atributo, valor) {
     span.innerText = valor > 0 ? `+${valor}` : valor;
 
     hudItem.appendChild(span);
-    setTimeout(() => span.remove(), 1200);
+    
+    gsap.fromTo(span, 
+        { opacity: 1, y: 0 }, 
+        { opacity: 0, y: -30, duration: 1.2, ease: "power1.out", onComplete: () => span.remove() }
+    );
 }
 
 function gerarRelatorioFinal(dados) {
-    document.getElementById("hud").style.display = "none";
-    document.getElementById("historia-container").style.display = "none";
-    document.body.className = "clima-normal"; 
-    
-    const relatorio = document.getElementById("relatorio-container");
-    relatorio.style.display = "block";
+    gsap.to(["#hud", "#historia-container"], { opacity: 0, duration: 0.5, onComplete: () => {
+        document.getElementById("hud").style.display = "none";
+        document.getElementById("historia-container").style.display = "none";
+        
+        const relatorio = document.getElementById("relatorio-container");
+        relatorio.style.display = "block";
+        document.body.className = "clima-normal"; 
 
-    document.getElementById("res-recursos").innerText = `💰 ${estado.recursos}`;
-    document.getElementById("res-comunidade").innerText = `🤝 ${estado.comunidade}`;
-    document.getElementById("res-seguranca").innerText = `🛡️ ${estado.seguranca}`;
+        document.getElementById("res-recursos").innerText = `💰 ${estado.recursos}`;
+        document.getElementById("res-comunidade").innerText = `🤝 ${estado.comunidade}`;
+        document.getElementById("res-seguranca").innerText = `🛡️ ${estado.seguranca}`;
 
-    // Lógica inteligente: o relatório muda de acordo com a pontuação final daquele eixo de história específico
-    let textoFinal = dados.conclusao_falha;
-    if (estado.comunidade >= 60 || estado.seguranca >= 60) {
-        textoFinal = dados.conclusao_sucesso;
-    }
+        let textoFinal = dados.conclusao_falha;
+        if (estado.comunidade >= 60 || estado.seguranca >= 60) {
+            textoFinal = dados.conclusao_sucesso;
+        }
 
-    document.getElementById("texto-conclusao").innerText = textoFinal;
+        document.getElementById("texto-conclusao").innerText = textoFinal;
+
+
+        gsap.fromTo(relatorio, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.7)" });
+    }});
 }

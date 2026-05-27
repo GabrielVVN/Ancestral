@@ -253,3 +253,59 @@ h1, h2, h3, h4, .serif { font-family: 'Playfair Display', serif; }
     30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
     40%, 60% { transform: translate3d(3px, 0, 0); }
 }
+
+
+
+
+
+/* =========================================
+   RESPONSIVIDADE (MOBILE)
+========================================= */
+
+/* Container inteligente para os botões finais */
+.botoes-finais {
+    display: flex;
+    flex-direction: column; /* Empilha no celular */
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.botoes-finais .btn-escolha {
+    text-align: center;
+    font-weight: bold;
+    width: 100%; /* Ocupa a tela toda no mobile */
+    max-width: 300px; /* Mas não fica gigante no PC */
+}
+
+/* Ajustes para telas maiores (PC e Tablet) */
+@media (min-width: 600px) {
+    .botoes-finais {
+        flex-direction: row; /* Ficam lado a lado no PC */
+        justify-content: center;
+    }
+}
+
+/* Ajustes gerais para celulares */
+@media (max-width: 600px) {
+    .card-historia, .card-relatorio {
+        padding: 1.5rem; /* Dá mais espaço de tela no celular */
+    }
+
+    .card-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .stats-final {
+        font-size: 1.2rem;
+        flex-direction: column; /* Empilha os resultados (💰, 🤝, 🛡️) */
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .btn-escolha {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+}
