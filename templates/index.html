@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminhos: Mulheres Negras na História</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="hero animar-entrada" style="max-w: 800px; width: 100%;">
+        <p class="tagline">Simulador de Decisões Históricas</p>
+        <h1 class="serif" style="font-size: 3.5rem;">Caminhos</h1>
+        <p class="description">Selecione uma ancestral e vivencie seus dilemas reais.</p>
+        
+        <div id="menu-historias" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; text-align: left; margin-top: 2rem;">
+            <p class="serif" style="text-align: center; width: 100%;">Carregando arquivos históricos...</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                const response = await fetch('/api/menu');
+                const menu = await response.json();
+                const container = document.getElementById("menu-historias");
+                container.innerHTML = "";
+
+                menu.forEach(historia => {
+                    // O clique redireciona para jogo.html passando o ID via URL (?historia=ciata_inicio)
+                    const cardHTML = `
+                        <a href="/jogo?historia=${historia.id_inicio}" class="card-historia" style="padding: 2rem; display: block; text-decoration: none; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;">
+                            <div style="font-size: 2.5rem; margin-bottom: 1rem;">${historia.icone}</div>
+                            <h3 class="serif" style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--color-text);">${historia.titulo}</h3>
+                            <p style="font-size: 1rem; color: var(--color-text-light); line-height: 1.5;">${historia.descricao}</p>
+                        </a>
+                    `;
+                    container.innerHTML += cardHTML;
+                });
+            } catch (error) {
+                console.error("Erro ao carregar menu:", error);
+            }
+        });
+    </script>
+</body>
+</html>

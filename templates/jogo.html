@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caminhos - A Jornada</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <main class="jogo-container">
+        
+        <div id="hud" class="hud-container animar-entrada">
+            <div class="hud-item" id="hud-recursos">
+                <span class="hud-icon">💰</span>
+                <span id="val-recursos">50</span>
+            </div>
+            <div class="hud-item" id="hud-comunidade">
+                <span class="hud-icon">🤝</span>
+                <span id="val-comunidade">50</span>
+            </div>
+            <div class="hud-item" id="hud-seguranca">
+                <span class="hud-icon">🛡️</span>
+                <span id="val-seguranca">50</span>
+            </div>
+        </div>
+
+        <article id="historia-container" class="card-historia animar-entrada">
+            <header class="card-header">
+                <div class="divider"></div>
+                <h2 id="titulo" class="serif">Carregando...</h2>
+            </header>
+            
+            <p id="texto-principal" class="texto-principal"></p>
+
+            <aside id="box-fato" class="box-fato" style="display: none;">
+                <h4 class="serif"><i>Contexto Histórico</i></h4>
+                <p id="texto-fato"></p>
+            </aside>
+
+            <div id="escolhas-container" class="escolhas-container"></div>
+        </article>
+
+        <article id="relatorio-container" class="card-relatorio animar-entrada" style="display: none;">
+            <header class="card-header">
+                <h2 class="serif">Relatório de Ancestralidade</h2>
+            </header>
+            <div class="stats-final">
+                <span id="res-recursos">💰 0</span>
+                <span id="res-comunidade">🤝 0</span>
+                <span id="res-seguranca">🛡️ 0</span>
+            </div>
+            <p id="texto-conclusao" class="conclusao-texto serif"></p>
+            <div style="text-align: center;">
+                <button onclick="window.location.href='/'" class="btn-escolha" style="width: auto; text-align: center; padding: 1rem 2rem; font-weight: bold;">
+                    Jogar Novamente
+                </button>
+            </div>
+        </article>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/jogo.js') }}"></script>
+</body>
+</html>

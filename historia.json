@@ -1,0 +1,125 @@
+{
+  "menu": [
+    {
+      "id_inicio": "ciata_inicio",
+      "titulo": "Tia Ciata: O Berço da Cultura",
+      "descricao": "Rio de Janeiro, 1899. Lidere a Pequena África e use estratégias culturais e políticas para resistir à repressão da Primeira República.",
+      "icone": "🥁"
+    },
+    {
+      "id_inicio": "firmina_inicio",
+      "titulo": "Maria Firmina: A Voz da Liberdade",
+      "descricao": "Maranhão, 1859. Utilize a educação e a literatura como armas para expor as feridas da escravidão em pleno período imperial.",
+      "icone": "🖋️"
+    }
+  ],
+  "nos": {
+    "ciata_inicio": {
+      "id": "ciata_inicio",
+      "clima": "normal",
+      "titulo": "A Chegada na Capital",
+      "texto_principal": "Rio de Janeiro, 1899. Você é Hilária Batista de Almeida. A capital é hostil com a população negra recém-liberta. Você traz consigo os saberes do candomblé e o talento como quituteira. Como dará os primeiros passos?",
+      "fato_historico": "A imigração baiana formou a 'Pequena África', uma rede de solidariedade liderada pelas 'Tias Baianas'.",
+      "escolhas": [
+        {"texto": "Vender doces na rua com trajes tradicionais.", "proximo_id": "ciata_venda", "impacto": {"recursos": 20, "comunidade": 0, "seguranca": -10}},
+        {"texto": "Alugar uma casa na Praça Onze para acolher baianos.", "proximo_id": "ciata_terreiro", "impacto": {"recursos": -15, "comunidade": 25, "seguranca": 10}}
+      ]
+    },
+    "ciata_venda": {
+      "id": "ciata_venda",
+      "clima": "tenso",
+      "titulo": "O Tabuleiro e a Lei",
+      "texto_principal": "Seus doces são um sucesso, mas a polícia exige taxas extorsivas para não confiscar os tabuleiros.",
+      "fato_historico": "Os trajes de baiana eram estratégias de identidade, mas atraíam a repressão policial.",
+      "escolhas": [
+        {"texto": "Pagar suborno para trabalhar em paz.", "proximo_id": "ciata_final_isolada", "impacto": {"recursos": -30, "comunidade": -10, "seguranca": 20}},
+        {"texto": "Recuar e investir em uma casa na Praça Onze.", "proximo_id": "ciata_terreiro", "impacto": {"recursos": -20, "comunidade": 20, "seguranca": 10}}
+      ]
+    },
+    "ciata_terreiro": {
+      "id": "ciata_terreiro",
+      "clima": "esperanca",
+      "titulo": "A Casa de Tia Ciata",
+      "texto_principal": "Sua casa atrai trabalhadores e músicos. No entanto, os cultos e batuques são proibidos por lei. A polícia ronda a área.",
+      "fato_historico": "A casa de Tia Ciata era terreiro, local de festas e refúgio político simultaneamente.",
+      "escolhas": [
+        {"texto": "Estratégia: Choro na sala da frente, Samba no quintal.", "proximo_id": "ciata_final_samba", "impacto": {"recursos": 0, "comunidade": 30, "seguranca": 10}},
+        {"texto": "Enfrentar e manter as tradições às claras.", "proximo_id": "ciata_invasao", "impacto": {"recursos": -10, "comunidade": 10, "seguranca": -40}}
+      ]
+    },
+    "ciata_invasao": {
+      "id": "ciata_invasao",
+      "clima": "tenso",
+      "titulo": "A Invasão",
+      "texto_principal": "A polícia invade sua casa. O delegado ameaça fechar o terreiro e prender todos.",
+      "fato_historico": "O Código Penal de 1890 criminalizava o candomblé como 'magia' e vadiagem.",
+      "escolhas": [
+        {"texto": "Usar seus saberes ancestrais para curar a ferida do Presidente em troca de favores.", "proximo_id": "ciata_final_poder", "impacto": {"recursos": 30, "comunidade": 0, "seguranca": 50}},
+        {"texto": "Gastar economias pagando advogados.", "proximo_id": "ciata_final_isolada", "impacto": {"recursos": -40, "comunidade": 10, "seguranca": 10}}
+      ]
+    },
+    "ciata_final_samba": {
+      "id": "ciata_final_samba",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Sua estratégia de resistência foi perfeita. Mantendo as aparências na sala e a tradição no quintal, o primeiro samba da história nasceu sob a sua proteção.\"",
+      "conclusao_falha": "\"Apesar da resistência cultural, a repressão impediu a expansão total da sua influência.\""
+    },
+    "ciata_final_poder": {
+      "id": "ciata_final_poder",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Você jogou com a genialidade política da verdadeira Tia Ciata. Curou a elite e exigiu respeito institucional, tornando sua casa intocável.\"",
+      "conclusao_falha": "\"Você se aproximou do poder, mas isso não foi suficiente para proteger toda a sua comunidade.\""
+    },
+    "ciata_final_isolada": {
+      "id": "ciata_final_isolada",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Você focou na sobrevivência financeira. Evitou a miséria, mas as extorsões impediram a construção da vasta rede de solidariedade das Tias Baianas.\"",
+      "conclusao_falha": "\"O peso do Estado engoliu seus recursos. Uma dura realidade de muitas mulheres sem rede de proteção.\""
+    },
+    
+    "firmina_inicio": {
+      "id": "firmina_inicio",
+      "clima": "normal",
+      "titulo": "A Tinta e o Sangue",
+      "texto_principal": "Maranhão, 1859. Você é Maria Firmina dos Reis, uma jovem professora negra. Indignada com os horrores da escravidão, você escreveu 'Úrsula', um romance expondo a visão dos escravizados. Como você o publicará no Brasil Império?",
+      "fato_historico": "Maria Firmina foi a primeira romancista negra do Brasil. 'Úrsula' é considerada a primeira obra da literatura afro-brasileira.",
+      "escolhas": [
+        {"texto": "Publicar sob o pseudônimo 'Uma Maranhense' para evitar ataques iniciais.", "proximo_id": "firmina_escola", "impacto": {"recursos": 10, "comunidade": 20, "seguranca": 10}},
+        {"texto": "Publicar com seu nome real, enfrentando a elite aristocrática de peito aberto.", "proximo_id": "firmina_censura", "impacto": {"recursos": -10, "comunidade": 30, "seguranca": -30}}
+      ]
+    },
+    "firmina_censura": {
+      "id": "firmina_censura",
+      "clima": "tenso",
+      "titulo": "O Preço da Ousadia",
+      "texto_principal": "Seu livro causa um choque. A elite escravocrata inicia uma campanha de difamação contra você, ameaçando sua posição como professora concursada.",
+      "fato_historico": "O silenciamento intelectual era uma arma do Império contra qualquer narrativa que não fosse dos homens brancos de elite.",
+      "escolhas": [
+        {"texto": "Recuar temporariamente e focar apenas no ensino básico de forma discreta.", "proximo_id": "firmina_final_esquecimento", "impacto": {"recursos": 20, "comunidade": -10, "seguranca": 30}},
+        {"texto": "Usar a atenção para fundar uma escola gratuita e radical para crianças.", "proximo_id": "firmina_escola", "impacto": {"recursos": -30, "comunidade": 20, "seguranca": -10}}
+      ]
+    },
+    "firmina_escola": {
+      "id": "firmina_escola",
+      "clima": "esperanca",
+      "titulo": "A Escola Mista",
+      "texto_principal": "Você decide dar um passo impensável para a época: fundar uma escola gratuita e mista, onde meninos e meninas estudam na mesma sala, focada em filhos de camponeses e escravizados.",
+      "fato_historico": "Em 1880, Firmina fundou a primeira escola mista do Maranhão, um ato revolucionário e escandaloso para a sociedade patriarcal.",
+      "escolhas": [
+        {"texto": "Ver o seu legado.", "proximo_id": "firmina_final_legado", "impacto": {"recursos": -10, "comunidade": 40, "seguranca": -10}}
+      ]
+    },
+    "firmina_final_legado": {
+      "id": "firmina_final_legado",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Sua coragem mudou a história. Apesar da escola mista ter sido fechada pelas autoridades anos depois, sua obra 'Úrsula' e seus alunos plantaram a semente da educação como pilar da liberdade negra.\"",
+      "conclusao_falha": "\"Sua intenção era nobre, mas a falta de apoio tornou impossível manter o projeto frente à elite imperial.\""
+    },
+    "firmina_final_esquecimento": {
+      "id": "firmina_final_esquecimento",
+      "tipo": "final",
+      "conclusao_sucesso": "\"Você garantiu sua sobrevivência como professora, mas seu silenciamento temporário atrasou a revolução educacional que seu intelecto poderia ter causado imediatamente.\"",
+      "conclusao_falha": "\"A máquina imperial venceu momentaneamente. A sobrevivência ofuscou a ousadia literária.\""
+    }
+  }
+}
